@@ -1,0 +1,8 @@
+beautifulsoup4
+pandas
+plotly
+python_dateutil
+SQLAlchemy
+streamlit
+mysql_connector_repackaged
+mysql-connector-python
