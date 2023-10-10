@@ -10,7 +10,7 @@ from scripts.getdata import marketing_leads,marketing_metrics
 
 def main():
     
-    st.set_page_config(layout="wide",initial_sidebar_state="collapsed")
+    #st.set_page_config(layout="wide",initial_sidebar_state="collapsed")
     
     formato = {
                'polygonfilter':None,
