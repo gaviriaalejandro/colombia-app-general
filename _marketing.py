@@ -497,6 +497,42 @@ def main():
     texto = BeautifulSoup(html, 'html.parser')
     st.markdown(texto, unsafe_allow_html=True)
     
+    html_paso = f"""
+    <div class="col-xl-6 col-sm-6 mb-xl-0 mb-2">
+      <div class="card">
+        <div class="card-body p-3">
+          <div class="row">
+            <div class="numbers">
+              <h3 class="font-weight-bolder mb-0" style="text-align: center;font-size: 1.5rem;">{len(data_leads_notcall)}</h3>
+              <p class="mb-0 text-capitalize" style="font-weight: 300;font-size: 1rem;text-align: center;"> # leads por llamar</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    """
+            
+    html = f"""
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <link href="https://personal-data-bucket-online.s3.us-east-2.amazonaws.com/css/nucleo-icons.css" rel="stylesheet" />
+      <link href="https://personal-data-bucket-online.s3.us-east-2.amazonaws.com/css/nucleo-svg.css" rel="stylesheet" />
+      <link id="pagestyle" href="https://personal-data-bucket-online.s3.us-east-2.amazonaws.com/css/soft-ui-dashboard.css?v=1.0.7" rel="stylesheet" />
+    </head>
+    <body>
+    <div class="container-fluid py-1">
+    <div class="row">
+    {html_paso}
+    </div>
+    </div>
+    </body>
+    </html>        
+    """
+    
+    texto = BeautifulSoup(html, 'html.parser')
+    st.markdown(texto, unsafe_allow_html=True)
+    
     data_leads_notcall = data_leads_notcall[['created_time', 'ad_name', 'form_name', 'platform', 'full_name', 'email', 'phone', 'phone_fix']]
     data_leads_notcall = data_leads_notcall.sort_values(by='created_time',ascending=False)
     data_leads_notcall.index = range(len(data_leads_notcall))
